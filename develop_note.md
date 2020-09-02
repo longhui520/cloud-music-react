@@ -32,3 +32,10 @@ npm install styled-components --save
 ```
 > 目录结构图为`treer`包生成
 4. 修改 App.js并引入style.js和字体js
+## 路由配置
+1. 添加依赖
+```shell
+npm install react-router react-router-dom react-router-config --save
+```
+2. 在Application下创建 Home Rank Recommend Singers 页面
+3. 在routes创建index.js 并且写入路由配置 
