@@ -3,9 +3,10 @@ import Slider from '../components/slider'
 import RecommendList from '../components/recommendList'
 import Scroll from '../components/scroll/'
 import {Content} from './style'
-
+import {getBannerRequest} from '../api/request'
 function Recommend(props){
   // mock 数据
+  
   const bannerList = [1,2,3,4].map (item => {
     return { imageUrl: "http://p1.music.126.net/ZYLJ2oZn74yUz5x8NBGkVA==/109951164331219056.jpg",id:item }
   });
@@ -17,6 +18,11 @@ function Recommend(props){
       name: "朴树、许巍、李健、郑钧、老狼、赵雷"
     }
   });
+  React.useEffect(()=>{
+    getBannerRequest().then((res)=>{
+      console.log(res)
+    })
+  },[])
   return (
     <Content>
       <Scroll className="list">

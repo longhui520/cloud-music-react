@@ -99,7 +99,6 @@ Scroll.propTypes = {
     pullDownLoading: PropTypes.bool,// 是否显示下拉 loading 动画
     bounceTop: PropTypes.bool,// 是否支持向上吸顶
     bounceBottom: PropTypes.bool// 是否支持向下吸底
-    
 }
 Scroll.defaultProps = {
     direction: "vertical",
