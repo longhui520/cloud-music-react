@@ -1,13 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Slider from '../components/slider'
 import RecommendList from '../components/recommendList'
+import Scroll from '../components/scroll/'
+import {Content} from './style'
 
-function TestUseEffect(){
-  useEffect(()=>{
-    console.log(1)
-  })
-return (<div>{console.log(2),1}</div>)
-}
 function Recommend(props){
   // mock 数据
   const bannerList = [1,2,3,4].map (item => {
@@ -22,12 +18,15 @@ function Recommend(props){
     }
   });
   return (
-    <div>
-      <Slider bannerList={bannerList}></Slider>
-      <RecommendList recommendList={recommendList}></RecommendList>
-      <TestUseEffect></TestUseEffect>
-    </div>
-   
+    <Content>
+      <Scroll className="list">
+        <div>
+          <Slider bannerList={bannerList}></Slider>
+          <RecommendList recommendList={recommendList}></RecommendList>
+        </div>
+      </Scroll>
+     
+    </Content>
   )
 }
 export default React.memo(Recommend)
