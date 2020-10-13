@@ -1,6 +1,5 @@
 import {combineReducers} from "redux-immutable"
-
+import { reducer as recommendReducer } from '../application/Recommend/store/index';
 export default combineReducers({
-    // TODO 添加具体的 reducer
-    // aa:function(){}
+    recommend: recommendReducer
 })
