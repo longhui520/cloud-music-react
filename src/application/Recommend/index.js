@@ -3,52 +3,45 @@ import Slider from '../../components/slider'
 import RecommendList from '../../components/recommendList'
 import Scroll from '../../components/scroll'
 import {Content} from './style'
-import {getBannerRequest} from '../../api/request'
-import { getIn } from 'immutable'
 import {getBannerList,getRecommendList} from './store/actionCreators'
 import { connect } from "react-redux"
+import { forceCheck } from 'react-lazyload';
+import Loading from '../../baseUI/loading/';
 function Recommend(props){
-  // mock 数据
-  const [bannerList,setBannerList] = React.useState([])
-  // const bannerList = [1,2,3,4].map (item => {
-  //   return { imageUrl: "http://p1.music.126.net/ZYLJ2oZn74yUz5x8NBGkVA==/109951164331219056.jpg",id:item }
-  // });
-  const recommendList = [1,2,3,4,5,6,7,8,9,10].map (item => {
-    return {
-      id: 1,
-      picUrl: "https://p1.music.126.net/fhmefjUfMD-8qtj3JKeHbA==/18999560928537533.jpg",
-      playCount: 17171122,
-      name: "朴树、许巍、李健、郑钧、老狼、赵雷"
-    }
-  });
+  const {bannerList,recommendList,enterLoading} = props
+  const {getBannerDataDispatch,getRecommendListDataDispatch} = props
   React.useEffect(()=>{
-    getBannerRequest().then(res=>{
-      if(res&&res.code==200){
-        setBannerList(res.banners)
-      }
-    })
+    if(!bannerList.size){
+      getBannerDataDispatch()
+    }
+    if(!recommendList.size){
+      getRecommendListDataDispatch()
+    } 
   },[])
+  const bannerListJS = bannerList ? bannerList.toJS () : [];
+  const recommendListJS = recommendList ? recommendList.toJS () :[];
   return (
     <Content>
-      <Scroll className="list">
+      <Scroll className="list" onScroll={forceCheck}>
         <div>
-          <Slider bannerList={bannerList}></Slider>
-          <RecommendList recommendList={recommendList}></RecommendList>
+          <Slider bannerList={bannerListJS}></Slider>
+          <RecommendList recommendList={recommendListJS}></RecommendList>
         </div>
       </Scroll>
-     
+      {enterLoading?(<Loading />):null}
     </Content>
   )
 }
 const mapStateToProps = (state)=>({
   bannerList:state.getIn(['recommend','bannerList']),
-  recommendList:getIn(['recommend','recommendList'])
+  recommendList:state.getIn(['recommend','recommendList']),
+  enterLoading:state.getIn(['recommend','enterLoading'])
 })
 const mapDispatchToProps = (dispatch)=>({
   getBannerDataDispatch(){
     dispatch(getBannerList())
   },
-  getRecommendList(){
+  getRecommendListDataDispatch (){
     dispatch(getRecommendList())
   }
 })

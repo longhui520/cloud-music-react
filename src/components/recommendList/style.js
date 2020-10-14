@@ -21,12 +21,6 @@ export const List = styled.div`
 export const ListItem = styled.div`
   position: relative;
   width: 32%;
-  &:last-child:nth-last-child(3n+1){
-    margin-right:66%;
-  }
-  &:last-child:nth-last-child(3n+2){
-    margin-right:32%;
-  }
   .img_wrapper {
     .decorate {
       position: absolute;
