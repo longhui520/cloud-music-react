@@ -36,6 +36,7 @@ const Scroll = forwardRef((props,ref)=>{
           bScroll.refresh ();
         }
     });
+    // 监听滚动
     useEffect (() => {
         if (!bScroll || !onScroll) return;
         bScroll.on ('scroll', (scroll) => {
@@ -45,6 +46,7 @@ const Scroll = forwardRef((props,ref)=>{
           bScroll.off ('scroll');
         }
     }, [onScroll, bScroll]);
+    // 上拉
     useEffect (() => {
         if (!bScroll || !pullUp) return;
         bScroll.on ('scrollEnd', () => {
@@ -57,6 +59,7 @@ const Scroll = forwardRef((props,ref)=>{
           bScroll.off ('scrollEnd');
         }
       }, [pullUp, bScroll]);
+      // 下拉
     useEffect (() => {
         if (!bScroll || !pullDown) return;
         bScroll.on ('touchEnd', (pos) => {
