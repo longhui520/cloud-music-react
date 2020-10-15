@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import {ListWrapper,ListItem,List} from './style'
 import {getCount} from '../../api/utils'
 import LazyLoad  from 'react-lazyload'

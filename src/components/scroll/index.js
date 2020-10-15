@@ -11,7 +11,7 @@ const ScrollContainer = styled.div`
 const Scroll = forwardRef((props,ref)=>{
     const [bScroll,setBScroll] = useState()
     const scrollContaninerRef = useRef()
-    const { direction, click, refresh, pullUpLoading, pullDownLoading, bounceTop, bounceBottom } = props
+    const { direction, click, refresh, bounceTop, bounceBottom } = props
     const { pullUp, pullDown, onScroll } = props
    
     useEffect (() => {
