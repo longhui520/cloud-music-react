@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+       function FancyInput(props,ref){
+        //    const inputRef = React.useRef()
+        //    React.useImperativeHandle(ref,()=>({
+        //        focus:()=>{
+        //            inputRef.current.focus()
+        //        }
+        //    }))
+            // console.log(ref)
+            ref.aa = ()=>{console.log(1)}
+           return <input ref={ref} />
+       }
+       FancyInput = React.forwardRef(FancyInput)
+       function PInput(){
+           const inputRef = React.useRef()
+           React.useEffect(()=>{
+               console.log(inputRef)
+               inputRef.current.focus()
+           })
+           return <FancyInput ref={inputRef}/>
+       }
+        ReactDOM.render(<PInput/>,document.querySelector('#app') )
+    </script>
+</body>
+</html>
