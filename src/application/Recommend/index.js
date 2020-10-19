@@ -1,7 +1,7 @@
 import React from 'react'
 import Slider from '../../components/slider'
 import RecommendList from '../../components/recommendList'
-import Scroll from '../../components/scroll'
+import Scroll from '../../baseUI/scroll'
 import {Content} from './style'
 import {getBannerList,getRecommendList} from './store/actionCreators'
 import { connect } from "react-redux"

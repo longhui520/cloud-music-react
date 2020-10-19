@@ -1,7 +1,7 @@
 import React from 'react'
 import { PropTypes } from 'prop-types';
 import styled from 'styled-components'
-import Scroll from '../../components/scroll';
+import Scroll from '../scroll';
 import style from '../../assets/global-style';
 
 const List = styled.div`
