@@ -12,6 +12,8 @@ export function reducer(state,action){
             return state.set('category',action.data)
         case CHANGE_ALPHA:
             return state.set('alpha',action.data)
+        default:
+            return state
     }
 }
 
@@ -21,7 +23,7 @@ export const Data = props=>{
         alpha:''
     }))
     return (
-        <CategoryDataContext.Provider store={{data,dispatch}}>
+        <CategoryDataContext.Provider value={{data,dispatch}}>
             {props.children}
         </CategoryDataContext.Provider>
     )

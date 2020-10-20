@@ -21,7 +21,7 @@ function Singers(props){
   // const [category,setCategory] = React.useState('')
   // const [alpha,setAlpha] = React.useState('')
   const {data,dispatch} = React.useContext(CategoryDataContext)
-  const {category,alpha} = data
+  const {category,alpha} = data.toJS()
   const {singerList,enterLoading,pullUpLoading,pullDownLoading,pageCount} = props
   const { getHotSingerDispatch, updateDispatch, pullDownRefreshDispatch, pullUpRefreshDispatch } = props;
   React.useEffect(()=>{

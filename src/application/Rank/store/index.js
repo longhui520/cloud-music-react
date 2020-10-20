@@ -22,10 +22,10 @@ export const getRankList = ()=>{
     }
 }
 const defaultState = fromJS({
-    rankList:[],
+    rankList:[], 
     loading:true
 })
-const reducer = (state=defaultStatus,action)=>{
+const reducer = (state=defaultState,action)=>{
     switch(action.type){
         case CHANGE_RANK_LIST:
             return state.set('rankList',action.data)
