@@ -2,8 +2,8 @@ import React, { forwardRef, useState, useEffect, useRef, useImperativeHandle,use
 import PropTypes from 'prop-types'
 import BScroll from 'better-scroll'
 import styled from 'styled-components'
-import LoadingV2 from '../loading-v2/index';
-import Loading from '../loading/index';
+import LoadingV2 from '../loading-v2/index'
+import Loading from '../loading/index'
 import { debounce } from '../../api/utils'
 const ScrollContainer = styled.div`
   width: 100%;
@@ -86,6 +86,7 @@ const Scroll = forwardRef((props, ref) => {
     return () => {
       bScroll.off('scrollEnd');
     }
+  // eslint-disable-next-line
   }, [pullUp, bScroll]);
   // 下拉
   useEffect(() => {
