@@ -68,7 +68,7 @@ export const getSingerList = (category,alpha) =>{
 export const refreshMoreSingerList = (category,alpha)=>{
     return (dispatch,getState)=>{
         const pageCount =  getState().getIn(['singers','pageCount'])
-        const singerList = getState().getIn(['singers',singerList]).toJS()
+        const singerList = getState().getIn(['singers','singerList']).toJS()
         getSingerListRequest(category,alpha,pageCount).then(res=>{
             const data = [...singerList,...res.artists]
             dispatch(changeSingerList(data))

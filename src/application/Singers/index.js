@@ -26,6 +26,7 @@ function Singers(props){
   const { getHotSingerDispatch, updateDispatch, pullDownRefreshDispatch, pullUpRefreshDispatch } = props;
   React.useEffect(()=>{
     getHotSingerDispatch()
+    // eslint-disable-next-line  
   },[])
   const handleUpdateCategory = (val)=>{
     // setCategory(val)

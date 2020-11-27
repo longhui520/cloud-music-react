@@ -11,10 +11,12 @@ function Rank(props) {
   const { rankList: list, loading } = props
   const { getRankListDataDispatch } = props
   const rankList = list ? list.toJS() : []
+  
   React.useEffect(() => {
     if (!rankList.length) {
       getRankListDataDispatch()
     }
+  // eslint-disable-next-line  
   }, [])
   let globalStartIndex = filterIndex(rankList);
   let officialList = rankList.slice(0, globalStartIndex);
